@@ -10,7 +10,7 @@ pac_dni tinyint,
 pac_tel varchar(30),
 pac_email varchar(40));
 
-insert into pacintes values
+insert into pacientes values
 (null, "Lin", "Jorge", 12345678, "15-0800-5000", "miemail@ejemplo.com"),
 (null, "DeBarriga", "Dolores", 98765432, "15-0500-8000", "ejemplo@email.com"),
 (null, "Quito", "Esteban", 13579864, "15-1234-5678", "email@miejemplo.com");

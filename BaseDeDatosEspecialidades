@@ -1,0 +1,44 @@
+CREATE DATABASE clinica;
+USE clinica;
+
+
+CREATE TABLE especialidades (
+    codigo INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion VARCHAR(50) NOT NULL
+    
+);
+
+insert into especialidades values
+(null, "esp1"),
+(null, "esp2"),
+(null, "esp3"),
+(null, "esp4"),
+(null, "esp5"),
+(null, "esp6"),
+(null, "esp7"),
+(null, "esp8");
+
+select * from especialidades;
+
+create table roles(
+rol tinyint,
+descripcion varchar(20),
+primary key(rol));
+
+insert into roles values
+(1, "recepcionista");
+
+create table usuarios(
+idUsuario int auto_increment primary key,
+nombre varchar(30),
+apellido varchar(30),
+usuario varchar(20),
+contra varchar(20),
+rol tinyint,
+foreign key(rol) references roles(rol),
+unique(usuario));
+
+insert into usuarios values
+(null, "lucas", "baez", "lucasbaez", "lucas1234", 1);
+
+select * from usuarios;

@@ -1,0 +1,48 @@
+body{
+    background-color: aquamarine;
+}
+.admin ul{ 
+    text-align: center;
+    border-collapse: collapse;
+    margin: auto;
+    align-items: center;
+    
+}
+.admin li{
+    display: inline-block;
+    border:1px solid black;
+    padding:15px;
+    background-color: rgb(123, 181, 181);
+}
+h1{
+    text-align: center;
+}
+
+#altas form, input{
+    text-align: center;
+    padding:10px;
+    margin:3px;
+}
+#altas{
+    margin: auto;
+    text-align: center;
+    
+}
+table, td, th{
+    border: 1px solid blue;
+    padding: 5px;
+}
+table{
+    border-collapse:collapse;
+    margin:auto;
+}
+th{
+    background-color:green;
+}
+td{
+    background-color:lightgreen;
+}
+h1{
+    text-align:center;
+}
+

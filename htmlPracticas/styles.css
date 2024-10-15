@@ -1,0 +1,80 @@
+/*login*/
+
+.login-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  text-align: center;
+}
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
+}
+
+
+/*perfil*/
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e9ecef; /* Color de fondo suave */
+  margin: 0;
+  padding: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #6c757d; /* Color gris suave */
+  padding: 15px 20px;
+  color: white;
+}
+#logo {
+  height: 50px; /* Ajusta la altura según necesites */
+}
+.user-info {
+  display: flex;
+  align-items: center;
+}
+.user-info span {
+  margin-right: 15px;
+}
+.action-button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #28a745; /* Color verde suave */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.action-button:hover {
+  background-color: #218838; /* Color verde más oscuro al pasar el ratón */
+}
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #343a40; /* Color gris oscuro */
+  text-align: center;
+}
+main {
+  padding: 20px;
+}
+
+

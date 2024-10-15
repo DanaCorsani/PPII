@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Panel de Usuario</title>
+  
+</head>
+<body>
+
+<header>
+    <img id="logo" src="img/C.png" alt="Logo de la Organización"> 
+    <div class="user-info">
+        <span>Usuario: Juan Pérez</span> 
+        <button class="action-button" onclick="logout()">Cerrar Sesión</button>
+    </div>
+</header>
+
+<main>
+    <h2>Bienvenido Juan!</h2>
+    <button class="action-button" onclick="showMessage('¡Hola! Has hecho clic en el botón 1.')">ABM medico</button>
+    <button class="action-button" onclick="showMessage('¡Has seleccionado la Acción 2!')">ABM especialidad</button>
+    <button class="action-button" onclick="showMessage('Acción 3 ejecutada. ¡Buen trabajo!')">ABM turnos</button>
+
+    <div id="result"></div>
+</main>
+
+<script>
+    function showMessage(message) {
+        document.getElementById('result').innerText = message;
+    }
+
+    function logout() {
+        alert('Cierre de sesión realizado.'); // Aquí puedes implementar la lógica real de cierre de sesión
+        // Redirigir a la página de inicio de sesión o hacer otra acción
+    }
+</script>
+
+</body>
+</html>

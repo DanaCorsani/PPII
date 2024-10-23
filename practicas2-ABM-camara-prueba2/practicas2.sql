@@ -48,6 +48,7 @@ dni int,
 email varchar(30),
 tel varchar(30),
 contra varchar(30),
+disponibilidad varchar(100),
 id_area int,
 id_rol int,
 foreign key(id_area) references areas(id_area),
@@ -57,7 +58,7 @@ unique(dni));
 INSERT INTO usuarios VALUES
 (null, "Sudo", "Admin", 12345678, "super@example.com", "15-1234-5678", "example", 1, 1),
 (null, "pcionista", "Rece", 98765432, "recepcionista@email.com", "11-87654321", "ejemplo", 1, 2),
-(null, "Anna", "Mary", 44444444, "recepcionista@email.com", "11-87654321", "ejemplo", 1, 2),
+(null, "Anna", "Mary", 44444444, "mariana@email.com", "11-87654321", "ejemplo", 1, 2),
 (null, "House", "Gregory", 13579146, "housemd@example.com", "0800-5555", "vicodin", 2, 3),
 (null, "Galilei", "Galileo", 112223333, "tierra@gira.com", "09090-90909", "sol", 3, 3),
 (null, "Borges", "Jorge Luis", 12457892, "borg@example.com", "0800-1234", "lit", 4, 3);

@@ -3,8 +3,35 @@ if (isset($_GET['accion'])) {
     if (isset($_GET['tabla'])) {
         $tabla = $_GET['tabla'];
         if ($_GET['accion'] == "Dar de alta") {
+
+if ($tabla == 'usuarios' && $_SESSION['id_rol'] != 1){
+echo "<p>No tiene permisos para modificar la Tabla Usuarios (Medicos). <br>Pongasé en contacto con su administrador.</p>";
+} else {
+
+    // Cambia colorcito de div que contiene formulario de altas.
+switch($_SESSION['id_rol']){
+    case 1:
 ?>
+            <div class="flex-form altas admin">
+            <?php
+            break;
+            case 2:
+                ?>
+            <div class="flex-form altas recepcionista">
+            <?php
+                break;
+            case 3:
+                ?>
+            <div class="flex-form medico">
+            <?php
+                break;
+            default:
+            ?>
             <div class="flex-form altas">
+            <?php
+                break;
+            }
+            ?>
                 <h4>Ingresar
                     <?php
                     switch ($tabla) {
@@ -64,16 +91,19 @@ if (isset($_GET['accion'])) {
                             <input type="text" name="apellido">
                             <br>
                             <label for="dni">DNI: </label>
-                            <input type="number" max=99999999 min=0 name="dni">
+                            <input type="number" max=99999999 min=0  maxlength="8" name="dni">
                             <br>
                             <label for="email">E-mail: </label>
                             <input type="email" name="email">
                             <br>
+                            <label for="tel">Telefono: </label>
+                            <input type="text" name="tel">
+                            <br>
                             <label for="contra">Contraseña: </label>
                             <input type="password" name="contra">
                             <br>
-                            <label for="tel">Telefono: </label>
-                            <input type="text" name="tel">
+                            <label for="disponibilidad">Disponibilidad: </label>
+                            <textarea name="disponibilidad" rows="5" maxlength="100"></textarea>
                             <br>
                             <label for="area">Area: </label>
                             <input type="number" name="area" min=1>
@@ -96,7 +126,7 @@ if (isset($_GET['accion'])) {
                             <input type="text" name="apellido">
                             <br>
                             <label for="dni">DNI: </label>
-                            <input type="number" max=99999999 min=0 name="dni">
+                            <input type="number" max=99999999 maxlength="8" min=0 name="dni">
                             <br>
                             <label for="email">E-mail: </label>
                             <input type="email" name="email">
@@ -104,8 +134,8 @@ if (isset($_GET['accion'])) {
                             <label for="tel">Telefono: </label>
                             <input type="text" name="tel">
                             <br>
-                            <label for="obraSoc">Obra Social: </label>
-                            <input type="text" name="obraSoc">
+                            <label for="id_prepaga">ID Obra Social: </label>
+                            <input type="number" name="id_prepaga" min=1>
                             <br>
                             <input type="submit" value="Dar de alta Paciente">
                         </form>
@@ -139,6 +169,7 @@ if (isset($_GET['accion'])) {
                         break;
                 }
             }
+        }
         } else {
             // Si puse botón de accion pero no elegí tabla.
             echo "Error. Debe elegir una tabla para realizar esta acción.<br>";
@@ -200,14 +231,15 @@ if (isset($_GET['accion'])) {
         $apellido = $_POST['apellido'];
         $dni = $_POST['dni'];
         $email = $_POST['email'];
-        $contra = $_POST['contra'];
         $tel = $_POST['tel'];
+        $contra = $_POST['contra'];
+        $disponibilidad = $_POST['disponibilidad'];
         $area = $_POST['area'];
         $rol = $_POST['rol'];
 
-        $sql = "insert into $tabla (apellido, nombre, dni, email, contra, tel, id_area, id_rol) 
+        $sql = "insert into $tabla (apellido, nombre, dni, email, tel, contra, disponibilidad, id_area, id_rol) 
         values
-        ('$apellido', '$nombre', $dni, '$email', '$contra', '$tel', $area, $rol);";
+        ('$apellido', '$nombre', $dni, '$email', '$tel', '$contra', '$disponibilidad', $area, $rol);";
 
         require_once "conexion.php";
         $cn = conectar();
@@ -227,11 +259,11 @@ if (isset($_GET['accion'])) {
         $dni = $_POST['dni'];
         $email = $_POST['email'];
         $tel = $_POST['tel'];
-        $obraSoc = $_POST['obraSoc'];
+        $id_prepaga = $_POST['id_prepaga'];
 
-        $sql = "insert into $tabla (apellido, nombre, dni, email, tel, obra_soc) 
+        $sql = "insert into $tabla (apellido, nombre, dni, email, tel, id_prepaga) 
         values
-        ('$apellido', '$nombre', $dni, '$email', '$tel', '$obraSoc');";
+        ('$apellido', '$nombre', $dni, '$email', '$tel', $id_prepaga);";
 
         require_once "conexion.php";
         $cn = conectar();
@@ -269,6 +301,5 @@ if (isset($_GET['accion'])) {
         }
         mysqli_close($cn);
     }
-
     ?>
     </div>

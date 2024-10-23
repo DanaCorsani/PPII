@@ -78,16 +78,19 @@ if (isset($_GET['modificar'])) {
                     <input type="text" name="apellido" value="<?= $result['apellido'] ?>">
                     <br>
                     <label for="dni">DNI: </label>
-                    <input type="number" max=99999999 min=0 name="dni" value="<?= $result['dni'] ?>">
+                    <input type="number" maxlength="8" max=99999999 min=0 name="dni" value="<?= $result['dni'] ?>">
                     <br>
                     <label for="email">E-mail: </label>
                     <input type="email" name="email" value="<?= $result['email'] ?>">
                     <br>
+                    <label for="tel">Telefono: </label>
+                    <input type="text" name="tel" value="<?= $result['tel'] ?>">
+                    <br>
                     <label for="contra">Contraseña: </label>
                     <input type="password" name="contra" value="<?= $result['contra'] ?>">
                     <br>
-                    <label for="tel">Telefono: </label>
-                    <input type="text" name="tel" value="<?= $result['tel'] ?>">
+                    <label for="disponibilidad">Disponibilidad: </label>
+                    <textarea name="disponibilidad" rows="5" maxlength="100"><?= $result['disponibilidad'] ?></textarea>
                     <br>
                     <label for="area">Area ID: </label>
                     <input type="number" name="area" value="<?= $result['id_area'] ?>">
@@ -113,7 +116,7 @@ if (isset($_GET['modificar'])) {
                     <input type="text" name="apellido" value="<?= $result['apellido'] ?>">
                     <br>
                     <label for="dni">DNI: </label>
-                    <input type="number" max=99999999 min=0 name="dni" value="<?= $result['dni'] ?>">
+                    <input type="number" maxlength="8" max=99999999 min=0 name="dni" value="<?= $result['dni'] ?>">
                     <br>
                     <label for="email">E-mail: </label>
                     <input type="email" name="email" value="<?= $result['email'] ?>">
@@ -121,8 +124,8 @@ if (isset($_GET['modificar'])) {
                     <label for="tel">Telefono: </label>
                     <input type="text" name="tel" value="<?= $result['tel'] ?>">
                     <br>
-                    <label for="obra_soc">Obra Social: </label>
-                    <input type="text" name="obra_soc" value="<?= $result['obra_soc'] ?>">
+                    <label for="id_prepaga">ID Obra Social: </label>
+                    <input type="number" name="id_prepaga" value="<?= $result['id_prepaga'] ?>">
                     <br>
                     <input type="submit" value="Modificar Paciente">
                 </form>
@@ -141,7 +144,7 @@ if (isset($_GET['modificar'])) {
                     <label for="area">Area ID: </label>
                     <input type="number" name="area" value="<?= $result['id_area'] ?>">
                     <br>
-                    <label for="paciente">Peciente ID: </label>
+                    <label for="paciente">Paciente ID: </label>
                     <input type="number" name="paciente" value="<?= $result['id_pac'] ?>">
                     <br>
                     <label for="fecha">Fecha: </label>
@@ -183,7 +186,6 @@ if (isset($_POST['mod'])) {
                 $id_area = $_POST['id_area'];
                 $desc_area = $_POST['desc_area'];
                 $sql = "update $tabla set desc_area='$desc_area' where id_area=$id_area;";
-                // update areas set desc_area='' where id_area=
                 break;
             case 'usuarios':
                 $id_usu = $_POST['id_usu'];
@@ -191,12 +193,14 @@ if (isset($_POST['mod'])) {
                 $apellido = $_POST['apellido'];
                 $dni = $_POST['dni'];
                 $email = $_POST['email'];
-                $contra = $_POST['contra'];
                 $tel = $_POST['tel'];
+                $contra = $_POST['contra'];
+                $disponibilidad = $_POST['disponibilidad'];
                 $area = $_POST['area'];
                 $rol = $_POST['rol'];
 
-                $sql = "update $tabla set apellido='$apellido', nombre='$nombre', dni=$dni, email='$email', contra='$contra', tel='$tel', id_area=$area, id_rol=$rol where id_usu=$id_usu;";
+                $sql = "update $tabla set apellido='$apellido', nombre='$nombre', dni=$dni, email='$email', tel='$tel', contra='$contra', disponibilidad='$disponibilidad', id_area=$area, id_rol=$rol where id_usu=$id_usu;";
+
                 break;
             case 'pacientes':
                 $id_pac = $_POST['id_pac'];
@@ -205,9 +209,9 @@ if (isset($_POST['mod'])) {
                 $dni = $_POST['dni'];
                 $email = $_POST['email'];
                 $tel = $_POST['tel'];
-                $obra_soc = $_POST['obra_soc'];
+                $id_prepaga = $_POST['id_prepaga'];
 
-                $sql = "update $tabla set apellido='$apellido', nombre='$nombre', dni=$dni, email='$email', tel='$tel', obra_soc='$obra_soc' where id_pac=$id_pac;";
+                $sql = "update $tabla set apellido='$apellido', nombre='$nombre', dni=$dni, email='$email', tel='$tel', id_prepaga=$id_prepaga where id_pac=$id_pac;";
                 break;
             case 'turnos':
                 $id_tur = $_POST['id_tur'];

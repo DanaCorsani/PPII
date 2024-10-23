@@ -200,6 +200,18 @@ td{
     padding-top: 0;
     width: 35vw;
 }
+.flex-form.altas.admin{
+    background-color: var(--tabla-header-1);
+    border: var(--tabla-bordes-1) outset .5rem;
+}
+.flex-form.altas.recepcionista{
+    background-color: var(--tabla-header-2);
+    border: var(--tabla-bordes-2) outset .5rem;
+}
+.flex-form.altas.medico{
+    background-color: var(--tabla-header-3);
+    border: var(--tabla-bordes-3) outset .5rem;
+}
 /* ABM - Altas */
 .flex-form.bajas{
     background-color: var(--tabla-header-1);
@@ -244,4 +256,8 @@ td{
 }
 .buttons-list ul {
     list-style-type: none;
+}
+
+textarea {
+    resize: none;
 }

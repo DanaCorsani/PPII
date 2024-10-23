@@ -30,16 +30,12 @@ switch ($_SESSION['id_rol']) {
 }
 ?>
 <?php
-if (isset($_GET['ver-comentarios'])) {
-    echo "<span id='arriba'></span>"; // <- Link ancla invisible para "subir" si tengo muchos comentarios.
-}
-
 if (!isset($_SESSION['email'])) {
     header("Location: logout.php");
 } else {
 ?>
     <h1>Trabajo Practico - Practicas 2</h1>
-    <!-- Barra de Usuario (Nombre y Btón de Cerrar Sesión) -->
+    <!-- Barra de Usuario (Nombre y Botón de Cerrar Sesión) -->
     <div class="userbar">
         <div class="boton-izq"></div>
 
@@ -85,6 +81,11 @@ if (!isset($_SESSION['email'])) {
                         <option value="roles">Roles</option>
                         <option value="areas">Areas</option>
                         <option value="usuarios">Usuarios</option>
+                        <?php
+                    }
+                    if($_SESSION['id_rol'] == 2){
+                        ?>
+                        <option value="usuarios">Medicos</option>
                         <?php
                     }
                     ?>

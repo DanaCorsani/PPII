@@ -1,0 +1,263 @@
+/* Variables de Color */
+:root {
+    /* usuario rol admin */
+    --admin-fondo: aquamarine; /* fondo de pagina */
+    --admin-buscador: lightseagreen; /* buscador */; 
+    --tabla-header-1: mediumturquoise; /* cabecera de tabla */
+    --tabla-fondo-1: lightcyan; /* fondo de tabla */
+    --tabla-bordes-1: teal; /* bordes de tabla */
+    /* usuario rol recepcionista */
+    --recepcionista-fondo: cornflowerblue;
+    --recepcionista-buscador: royalblue;
+    --tabla-header-2: rgb(70, 105, 180) ;
+    --tabla-fondo-2: rgb(173, 195, 230);
+    --tabla-bordes-2: midnightblue;
+    /* usuario rol medico */
+    --medico-fondo: palegreen;
+    --medico-buscador: limegreen;
+    --tabla-header-3: mediumseagreen;
+    --tabla-fondo-3: rgb(204, 253, 223);
+    --tabla-bordes-3: seagreen;
+}
+
+body{
+    box-sizing: border-box;
+    font-family: Verdana, Helvetica, Tahoma, sans-serif;
+    scroll-behavior: smooth;
+    background: cyan;
+}
+/* v Diferente color de fondo según rol de usuario */
+body.admin{
+    background-color: var(--admin-fondo);
+}
+body.recepcionista{
+    background-color: var(--recepcionista-fondo);
+}
+body.medico{
+    background-color: var(--medico-fondo);
+}
+
+/* v Botones menos feos */
+button, input[type=submit]{
+    font-family: Verdana, Helvetica, Tahoma, sans-serif;
+    font-size: medium;
+}
+
+#buscador ul{ 
+    text-align: center;
+    border-collapse: collapse;
+    margin: auto;
+    align-items: center;
+}
+#buscador li{
+    display: inline-block;
+    border:1px solid black;
+    padding:15px;
+    background-color: silver;
+}
+/* v Color del buscado cambia con rolde usuario. */
+.admin #buscador li {
+    background-color: var(--admin-buscador);
+}
+.recepcionista #buscador li {
+    background-color: var(--recepcionista-buscador);
+}
+.medico #buscador li {
+    background-color: var(--medico-buscador);
+}
+
+h1{
+    text-align: center;
+}
+
+#altas form, input{
+    text-align: center;
+    padding:10px;
+    margin:3px;
+}
+#altas{
+    margin: auto;
+}
+
+/* v Barra con nombre de usuario y botón de cerrar sesión */
+.userbar {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.boton-izq button{
+    padding: .5rem;
+    margin: .5vh auto -.5vh;
+}
+.username {
+    display:flex;
+    flex-direction: row;
+    justify-content: end;
+    align-content: center;
+    align-items: center;
+}
+
+/* Tabla */
+table, td, th{
+    border: 1px solid black;
+    padding: 5px;
+}
+table{
+    border-collapse:collapse;
+    margin:auto;
+}
+th{
+    background-color: gray;
+}
+
+td{
+    background-color: white;
+}
+/* v Color de la tabla cambia segun rol de usuario */
+.admin table, td, th{
+    border: 1px solid var(--tabla-bordes-1);
+}
+.recepcionista table, td, th{
+    border: 1px solid var(--tabla-bordes-2);
+}
+.medico table, td, th{
+    border: 1px solid var(--tabla-bordes-3);
+}
+.admin th{
+    background-color:var(--tabla-header-1);
+}
+.recepcionista th{
+    background-color:var(--tabla-header-2);
+}
+.medico th{
+    background-color:var(--tabla-header-3);
+}
+.admin td{
+    background-color:var(--tabla-fondo-1);
+}
+.recepcionista td{
+    background-color:var(--tabla-fondo-2);
+}
+.medico td{
+    background-color:var(--tabla-fondo-3);
+}
+
+/* v Para que los Formularios queden mejor */
+.flex-form{
+    margin: 0 auto;
+    padding: 2vw 1vw 2vw;
+    border-radius: 1rem;
+    display:flex;
+    flex-direction: column;
+    width: 30vw;
+}
+.flex-form form {
+    flex-direction: column;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.flex-form form label{
+    justify-content: center;
+}
+
+.logout {
+    margin-top: 5vh;
+    border: none;
+    align-items: center;
+}
+.logout button {
+    align-self: center;
+    padding: .5rem;
+    border-radius: 1rem;
+    border: initial;
+}
+/* v Color de la pagina de cerrar sesión cambia según rol de usuario. */
+.logout{
+    background: darkturquoise;
+}
+.admin .logout {
+    background: var(--admin-buscador);
+}
+.recepcionista .logout{
+    background: var(--recepcionista-buscador);
+}
+.medico .logout{
+    background: var(--medico-buscador);
+}
+/* v botones de formulario en rol Admin */
+.admin .flex-form input[type=submit], .admin table input[type=submit] {
+    border-radius: .5rem;
+    border: initial;
+    background-color: var(--tabla-fondo-1);
+}
+/* ABM - Altas */
+.flex-form.altas{
+    background-color: var(--tabla-header-1);
+    border: var(--tabla-bordes-1) outset .5rem;
+    margin-top: 1rem;
+    padding-top: 0;
+    width: 35vw;
+}
+.flex-form.altas.admin{
+    background-color: var(--tabla-header-1);
+    border: var(--tabla-bordes-1) outset .5rem;
+}
+.flex-form.altas.recepcionista{
+    background-color: var(--tabla-header-2);
+    border: var(--tabla-bordes-2) outset .5rem;
+}
+.flex-form.altas.medico{
+    background-color: var(--tabla-header-3);
+    border: var(--tabla-bordes-3) outset .5rem;
+}
+/* ABM - Altas */
+.flex-form.bajas{
+    background-color: var(--tabla-header-1);
+    border: var(--tabla-bordes-1) outset .5rem;
+    margin-top: 1rem;
+    padding-top: 0;
+    width: 40vw;
+}
+.flex-form.bajas form{
+    display: flex;
+}
+/* Comentarios */
+.comentarios .flex-form{
+    margin-top: 1rem;
+    padding-top: 0vh;
+    background-color: var(--tabla-header-2);
+    border: var(--tabla-bordes-2) outset .5rem;
+    width: 40vw;
+}
+/* Ejercicios */
+.ejercicios form {
+    display: flex;
+    justify-content: space-evenly;
+}
+/* Fecha */
+.flex-form.fecha{
+    background-color: var(--tabla-header-3);
+    margin-top: 1rem;
+    padding-top: 0vh;
+    padding-left: 2vw;
+    width: 25vw;
+    align-items: baseline;
+}
+
+.buttons-list {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+.buttons-list ul {
+    list-style-type: none;
+}
+
+textarea {
+    resize: none;
+}

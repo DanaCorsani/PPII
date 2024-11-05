@@ -28,7 +28,7 @@ INSERT INTO areas VALUES
 
 CREATE TABLE prepagas(
 id_prepaga int primary key auto_increment,
-desc_area varchar(50));
+desc_prepaga varchar(50));
 
 INSERT INTO prepagas VALUES
 (null, "-"),
@@ -55,12 +55,12 @@ foreign key(id_rol) references roles(id_rol),
 unique(dni));
 
 INSERT INTO usuarios VALUES
-(null, "Sudo", "Admin", 12345678, "super@example.com", "15-1234-5678", "example", 1, 1),
-(null, "pcionista", "Rece", 98765432, "recepcionista@email.com", "11-87654321", "ejemplo", 1, 2),
-(null, "Anna", "Mary", 44555444, "mariana@email.com", "11-87654321", "ejemplo", 1, 2),
-(null, "House", "Gregory", 13579146, "housemd@example.com", "0800-5555", "vicodin", 2, 3),
-(null, "Galilei", "Galileo", 11222333, "tierra@gira.com", "09090-90909", "sol", 3, 3),
-(null, "Borges", "Jorge Luis", 12457892, "borg@example.com", "0800-1234", "lit", 4, 3);
+(null, "Sudo", "Admin", 12345678, "super@example.com", "15-1234-5678", "example","example", 1, 1),
+(null, "pcionista", "Rece", 98765432, "recepcionista@email.com", "11-87654321", "ejemplo","example", 1, 2),
+(null, "Anna", "Mary", 44555444, "mariana@email.com", "11-87654321", "ejemplo","example", 1, 2),
+(null, "House", "Gregory", 13579146, "housemd@example.com", "0800-5555", "vicodin","example", 2, 3),
+(null, "Galilei", "Galileo", 11222333, "tierra@gira.com", "09090-90909", "sol","example", 3, 3),
+(null, "Borges", "Jorge Luis", 12457892, "borg@example.com", "0800-1234", "lit","example", 4, 3);
 
 CREATE TABLE pacientes(
 id_pac int auto_increment primary key,
@@ -74,9 +74,9 @@ foreign key(id_prepaga) references prepagas(id_prepaga),
 unique(dni));
 
 INSERT INTO pacientes VALUES
-(null, "Lin", "Jorge", 12345678, "lin@ejemplo.com", "15-0800-5000", "OSDE"),
-(null, "DeBarriga", "Dolores", 98765432, "bar@ejemplo.com", "15-0500-8000", "Femeba"),
-(null, "Quito", "Esteban", 13579864, "banquito@ejemplo.com", "15-1234-5678", "Medicus");
+(null, "Lin", "Jorge", 12345678, "lin@ejemplo.com", "15-0800-5000", 1),
+(null, "DeBarriga", "Dolores", 98765432, "bar@ejemplo.com", "15-0500-8000", 2),
+(null, "Quito", "Esteban", 13579864, "banquito@ejemplo.com", "15-1234-5678", 3);
 
 CREATE TABLE turnos(
 id_tur int auto_increment primary key,
